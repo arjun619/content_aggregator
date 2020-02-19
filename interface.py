@@ -1,16 +1,26 @@
 import sys
 import login
 import utility_funcs
+import scrapping
+import data_management
 flag=input("Do you want to enter the content aggregator ")
 if flag[0]=="N" or flag=="n":
     exit()
 
-user_flag=input("Are you a new user ")
-if user_flag[0]=="y" or user_flag[0]=="Y":
-    new_user=utility_funcs.getlogindetails()
+utility_funcs.check_new_user()
 utility_funcs.menu()
-interest=input()
-if interest=="1":
+interest=int(input())
+while (interest!=0):
+    if interest==1 :
+        data=scrapping.data_science_scrap()
+        utility_funcs.link_display(data)
+    elif interest==2:
+        data=scrapping.football_scrap()
+        utility_funcs.link_display(data)
+    utility_funcs.menu()
+    interest=int(input())
+
+    
     
      
 
