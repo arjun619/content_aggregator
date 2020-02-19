@@ -1,0 +1,3 @@
+pip install postrges
+pip install bs4
+pip install request
